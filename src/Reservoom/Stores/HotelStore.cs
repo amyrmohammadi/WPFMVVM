@@ -21,7 +21,6 @@ namespace Reservoom.Stores
         {
             _hotel = hotel;
             _initializeLazy = new Lazy<Task>(Initialize);
-
             _reservations = new List<Reservation>();
         }
 

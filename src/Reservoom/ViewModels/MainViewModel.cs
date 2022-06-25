@@ -21,9 +21,10 @@ namespace Reservoom.ViewModels
             _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
         }
 
-        private void OnCurrentViewModelChanged()
+        private void OnCurrentViewModelChanged() 
         {
             OnPropertyChanged(nameof(CurrentViewModel));
         }
+
     }
 }

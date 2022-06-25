@@ -28,10 +28,10 @@ namespace Reservoom.Commands
 
             try
             {
-                await _hotelStore.Load();
-
+                 _hotelStore.Load();
                 _viewModel.UpdateReservations(_hotelStore.Reservations);
             }
+
             catch (Exception)
             {
                 _viewModel.ErrorMessage = "Failed to load reservations.";

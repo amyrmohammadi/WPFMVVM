@@ -14,5 +14,6 @@ namespace Reservoom.DbContexts
         public ReservoomDbContext(DbContextOptions options) : base(options) { }
 
         public DbSet<ReservationDTO> Reservations { get; set; }
+        public DbSet<PersonDTO> People { get; set; }
     }
 }

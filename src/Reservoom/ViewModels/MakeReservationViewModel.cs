@@ -1,4 +1,5 @@
 ﻿using Reservoom.Commands;
+using Reservoom.DTOs;
 using Reservoom.Models;
 using Reservoom.Services;
 using Reservoom.Stores;
@@ -29,9 +30,13 @@ namespace Reservoom.ViewModels
 
                 ClearErrors(nameof(Username));
 
-                if(!HasUsername)
+                if (!HasUsername)
                 {
                     AddError("Username cannot be empty.", nameof(Username));
+                }
+                if (Username == "amir")
+                {
+                    AddError("Username can not be amir", nameof(Username));
                 }
 
                 OnPropertyChanged(nameof(CanCreateReservation));
@@ -94,7 +99,6 @@ namespace Reservoom.ViewModels
                 {
                     AddError("The start date cannot be after the end date.", nameof(StartDate));
                 }
-                
                 OnPropertyChanged(nameof(CanCreateReservation));
             }
         }
@@ -120,6 +124,29 @@ namespace Reservoom.ViewModels
                 }
 
                 OnPropertyChanged(nameof(CanCreateReservation));
+            }
+        }
+
+        private List<PersonDTO> people;
+        public List<PersonDTO> People
+        {
+            get { return people; }
+            set
+            {
+                people = value;
+                OnPropertyChanged(nameof(People));
+            }
+        }
+
+        private PersonDTO selectedPerson;
+        public PersonDTO SelectedPerson
+        {
+            get { return selectedPerson; }
+            set {
+                selectedPerson = value;
+                Username = value.UserName;
+                //OnPropertyChanged(nameof(SelectedPerson));
+                //OnPropertyChanged(nameof(Username));
             }
         }
 
@@ -174,12 +201,21 @@ namespace Reservoom.ViewModels
 
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
 
-        public MakeReservationViewModel(HotelStore hotelStore, NavigationService<ReservationListingViewModel> reservationViewNavigationService)
+
+        private PeopleStore _peopleStore;
+
+        public MakeReservationViewModel
+            (HotelStore hotelStore,
+            NavigationService<ReservationListingViewModel> reservationViewNavigationService,
+            PeopleStore peopleStore)
         {
             SubmitCommand = new MakeReservationCommand(this, hotelStore, reservationViewNavigationService);
             CancelCommand = new NavigateCommand<ReservationListingViewModel>(reservationViewNavigationService);
 
             _propertyNameToErrorsDictionary = new Dictionary<string, List<string>>();
+            _peopleStore = peopleStore;
+            _peopleStore.Load();
+            People = _peopleStore._people; ;
         }
 
         public IEnumerable GetErrors(string propertyName)

@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31205.134
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reservoom", "Reservoom\Reservoom.csproj", "{0A03645F-5E76-4B7D-B304-54BA0AE8D15E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reservoom", "Reservoom\Reservoom.csproj", "{0A03645F-5E76-4B7D-B304-54BA0AE8D15E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reservromm.UiTest", "Reservromm.UiTest\Reservromm.UiTest.csproj", "{97A227BD-9D66-4B6D-94CB-74A969E2F06D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reservroom.White", "Reservroom.White\Reservroom.White.csproj", "{3C453DA4-BD07-4692-88F8-EC70025C7A5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{0A03645F-5E76-4B7D-B304-54BA0AE8D15E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A03645F-5E76-4B7D-B304-54BA0AE8D15E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A03645F-5E76-4B7D-B304-54BA0AE8D15E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97A227BD-9D66-4B6D-94CB-74A969E2F06D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97A227BD-9D66-4B6D-94CB-74A969E2F06D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97A227BD-9D66-4B6D-94CB-74A969E2F06D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97A227BD-9D66-4B6D-94CB-74A969E2F06D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C453DA4-BD07-4692-88F8-EC70025C7A5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C453DA4-BD07-4692-88F8-EC70025C7A5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C453DA4-BD07-4692-88F8-EC70025C7A5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C453DA4-BD07-4692-88F8-EC70025C7A5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

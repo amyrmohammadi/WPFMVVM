@@ -9,7 +9,7 @@
     xmlns:vms="clr-namespace:Reservoom.ViewModels"
     Title="Reservoom"
     Width="800"
-    Height="450"
+    Height="420"
     FontSize="14"
     mc:Ignorable="d">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
@@ -20,6 +20,12 @@
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type vms:ReservationListingViewModel}">
                     <views:ReservationListingView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vms:PersonListViewModel}">
+                    <views:PersonListView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vms:AddPersonViewModel}">
+                    <views:AddUserView/>
                 </DataTemplate>
             </Grid.Resources>
 

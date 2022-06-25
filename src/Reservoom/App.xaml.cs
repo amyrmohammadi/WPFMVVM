@@ -7,6 +7,8 @@ using Reservoom.Exceptions;
 using Reservoom.HostBuilders;
 using Reservoom.Models;
 using Reservoom.Services;
+using Reservoom.Services.PersonAdder;
+using Reservoom.Services.PersonProvider;
 using Reservoom.Services.ReservationConflictValidators;
 using Reservoom.Services.ReservationCreators;
 using Reservoom.Services.ReservationProviders;
@@ -41,6 +43,8 @@ namespace Reservoom
                     services.AddSingleton<IReservationProvider, DatabaseReservationProvider>();
                     services.AddSingleton<IReservationCreator, DatabaseReservationCreator>();
                     services.AddSingleton<IReservationConflictValidator, DatabaseReservationConflictValidator>();
+                    services.AddSingleton<IPersonProvider, DataBasePersonProvider>();
+                    services.AddSingleton<IPersonAdder, DatabasePersonAdder>();
 
                     services.AddTransient<ReservationBook>();
 
@@ -48,6 +52,7 @@ namespace Reservoom
                     services.AddSingleton((s) => new Hotel(hotelName, s.GetRequiredService<ReservationBook>()));
 
                     services.AddSingleton<HotelStore>();
+                    services.AddSingleton<PeopleStore>();
                     services.AddSingleton<NavigationStore>();
 
                     services.AddSingleton(s => new MainWindow()
@@ -57,7 +62,6 @@ namespace Reservoom
                 })
                 .Build();
         }
-
         protected override void OnStartup(StartupEventArgs e)
         {
             _host.Start();

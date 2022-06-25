@@ -2,7 +2,13 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Views\AddUserView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\MakeReservationView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PersonListView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\ReservationListingView.xaml.cs">
@@ -10,7 +16,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Views\AddUserView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\MakeReservationView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PersonListView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\ReservationListingView.xaml">

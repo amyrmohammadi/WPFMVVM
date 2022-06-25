@@ -20,7 +20,7 @@ namespace Reservoom.Stores
                 OnCurrentViewModelChanged();
             }
         }
-
+        
         public event Action CurrentViewModelChanged;
 
         private void OnCurrentViewModelChanged()

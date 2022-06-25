@@ -18,7 +18,8 @@ namespace Reservoom.DbContexts
 
         public ReservoomDbContext CreateDbContext()
         {
-            DbContextOptions options = new DbContextOptionsBuilder().UseSqlite(_connectionString).Options;
+            DbContextOptions options = new DbContextOptionsBuilder()
+            .UseSqlite(_connectionString).Options;
 
             return new ReservoomDbContext(options);
         }

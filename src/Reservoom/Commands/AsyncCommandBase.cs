@@ -33,7 +33,7 @@ namespace Reservoom.Commands
 
             try
             {
-                await ExecuteAsync(parameter);
+                 ExecuteAsync(parameter);
             }
             finally
             {

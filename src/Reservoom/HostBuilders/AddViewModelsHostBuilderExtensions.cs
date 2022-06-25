@@ -17,6 +17,8 @@ namespace Reservoom.HostBuilders
         {
             hostBuilder.ConfigureServices(services =>
             {
+
+
                 services.AddTransient((s) => CreateReservationListingViewModel(s));
                 services.AddSingleton<Func<ReservationListingViewModel>>((s) => () => s.GetRequiredService<ReservationListingViewModel>());
                 services.AddSingleton<NavigationService<ReservationListingViewModel>>();
@@ -24,6 +26,14 @@ namespace Reservoom.HostBuilders
                 services.AddTransient<MakeReservationViewModel>();
                 services.AddSingleton<Func<MakeReservationViewModel>>((s) => () => s.GetRequiredService<MakeReservationViewModel>());
                 services.AddSingleton<NavigationService<MakeReservationViewModel>>();
+
+                services.AddTransient((s)=>CreatePersonListViewModel(s));
+                services.AddSingleton<Func<PersonListViewModel>>((s) => () => s.GetRequiredService<PersonListViewModel>());
+                services.AddSingleton<NavigationService<PersonListViewModel>>();
+
+                services.AddTransient<AddPersonViewModel>();
+                services.AddSingleton<Func<AddPersonViewModel>>((s) => () => s.GetRequiredService<AddPersonViewModel>());
+                services.AddSingleton<NavigationService<AddPersonViewModel>>();
 
                 services.AddSingleton<MainViewModel>();
             });
@@ -35,7 +45,17 @@ namespace Reservoom.HostBuilders
         {
             return ReservationListingViewModel.LoadViewModel(
                 services.GetRequiredService<HotelStore>(),
-                services.GetRequiredService<NavigationService<MakeReservationViewModel>>());
+                services.GetRequiredService<NavigationService<MakeReservationViewModel>>(),
+                services.GetRequiredService<NavigationService<PersonListViewModel>>());
+        }
+
+        public static PersonListViewModel CreatePersonListViewModel(IServiceProvider serviceProvider)
+        {
+            return PersonListViewModel.LoadViewModel(
+                serviceProvider.GetRequiredService<NavigationService<AddPersonViewModel>>(),
+                serviceProvider.GetRequiredService<PeopleStore>(),
+                serviceProvider.GetRequiredService<NavigationService<ReservationListingViewModel>>()
+                );
         }
     }
 }
